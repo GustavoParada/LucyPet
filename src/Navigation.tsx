@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import App from './App';
 import Hello from './screens/Hello';
 import MapScreen from './screens/Map'
+import MapScreen2 from './screens/Map2'
 
 function HomeScreen() {
     return (
@@ -49,7 +50,7 @@ function MyTabs() {
                         <Icon name="map" size={30} color="#900" />
                     ),
                 }} />
-                 <Tab.Screen name="User" component={Hello}
+            <Tab.Screen name="User" component={Hello}
                 options={{
                     tabBarLabel: 'User',
                     tabBarIcon: ({ color, size }) => (
