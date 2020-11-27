@@ -2,7 +2,6 @@ import Geolocation from '@react-native-community/geolocation';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
-import Location from './Location';
 
 const styles = StyleSheet.create({
     container: {
@@ -26,11 +25,11 @@ export default () => {
         const lastPosition = JSON.stringify(position);
         setGeoPosition(position);
     });
+    console.log(geoPosition)
 
     return (
 
         <View style={styles.container}>
-            <Location />
             <MapView
                 provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                 style={styles.map}
