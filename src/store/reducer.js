@@ -1,5 +1,5 @@
 export default rootReducer = () => {
     return {
-        user: {}
+        user: { nome: "Gustavo", email: "gustavo@dupa.pt" }
     }
 }

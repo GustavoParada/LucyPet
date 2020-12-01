@@ -17,9 +17,16 @@ const styles = StyleSheet.create({
 });
 
 export default () => {
+
+
     let watchID = 0
 
-    const [geoPosition, setGeoPosition] = useState({})
+    const [geoPosition, setGeoPosition] = useState({
+        coords: {
+            latitude: 0,
+            longitude: 0
+        }
+    })
 
     watchID = Geolocation.watchPosition(position => {
         const lastPosition = JSON.stringify(position);

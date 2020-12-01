@@ -1,9 +1,14 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux'
+import { name as appName } from '../../app.json';
 
 export interface Props {
   name: string;
   enthusiasmLevel?: number;
+}
+export interface State {
+  name: string;
 }
 
 const Hello: React.FC<Props> = (props) => {
@@ -18,11 +23,16 @@ const Hello: React.FC<Props> = (props) => {
 
   const getExclamationMarks = (numChars: number) =>
     Array(numChars + 1).join('!');
+
+  const nome = useSelector((state: { user: { nome: string; }; }) => {
+    return state.user.nome;
+  })
+
   return (
     <View style={styles.root}>
       <Text style={styles.greeting}>
         Hello{' '}
-        {props.name + getExclamationMarks(enthusiasmLevel || 0)}
+        {appName + getExclamationMarks(enthusiasmLevel || 0)}
       </Text>
       <View style={styles.buttons}>
         <View style={styles.button}>
@@ -42,6 +52,7 @@ const Hello: React.FC<Props> = (props) => {
           />
         </View>
       </View>
+      <Text>{nome}</Text>
     </View>
   );
 };
